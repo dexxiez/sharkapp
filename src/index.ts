@@ -9,20 +9,7 @@ export type { BaseElementOptions, Child, Children } from "./elements/types";
 export { Button, button, type ButtonOptions } from "./elements/button";
 
 // Simple elements (factory-based)
-export {
-  div,
-  main,
-  aside,
-  article,
-  footer,
-  header,
-  nav,
-  section,
-  span,
-  strong,
-  em,
-  p,
-} from "./elements/div";
+export * from "./elements/div";
 
 // State management
 export { effect, signal, computed } from "./state";

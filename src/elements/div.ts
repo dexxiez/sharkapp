@@ -37,3 +37,24 @@ export const em = (options?: BaseElementOptions) =>
 
 export const p = (options?: BaseElementOptions) =>
   newElement<HTMLParagraphElement>("p", options);
+
+export const h1 = (options?: BaseElementOptions) =>
+  newElement<HTMLHeadingElement>("h1", options);
+
+export const h2 = (options?: BaseElementOptions) =>
+  newElement<HTMLHeadingElement>("h2", options);
+
+export const h3 = (options?: BaseElementOptions) =>
+  newElement<HTMLHeadingElement>("h3", options);
+
+export const h4 = (options?: BaseElementOptions) =>
+  newElement<HTMLHeadingElement>("h4", options);
+
+export const h5 = (options?: BaseElementOptions) =>
+  newElement<HTMLHeadingElement>("h5", options);
+
+export const h6 = (options?: BaseElementOptions) =>
+  newElement<HTMLHeadingElement>("h6", options);
+
+export const img = (options?: BaseElementOptions) =>
+  newElement<HTMLImageElement>("img", options);
