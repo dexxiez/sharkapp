@@ -1,5 +1,16 @@
 import { defineConfig } from "tsup";
 
+import pkg from "./package.json";
+
+const banner = `
+/**
+ * @license MIT
+ * @author Dexxiez
+ * @version ${pkg.version}
+ * @description A lightishweight DOM framework for ESM modules
+ */
+`;
+
 export default defineConfig([
   {
     entry: ["src/index.ts"],
@@ -10,6 +21,9 @@ export default defineConfig([
     clean: true,
     outDir: "dist",
     minify: false,
+    banner: {
+      js: banner,
+    },
   },
   {
     entry: ["src/index.ts"],
@@ -21,5 +35,8 @@ export default defineConfig([
     outDir: "dist",
     outExtension: () => ({ js: ".min.js" }),
     minify: true,
+    banner: {
+      js: banner,
+    },
   },
 ]);

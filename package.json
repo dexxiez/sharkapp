@@ -1,6 +1,6 @@
 {
   "name": "sharkapp",
-  "version": "0.0.1",
+  "version": "0.0.0-alpha.1",
   "description": "A lightishweight DOM framework for ESM modules",
   "type": "module",
   "main": "./dist/index.js",

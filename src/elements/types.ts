@@ -1,5 +1,7 @@
-// Child types - elements can contain other elements, text, numbers, or null/undefined
-export type Child = HTMLElement | string | number | null | undefined;
+import { effect } from "../state/signals";
+
+// Child types - elements can contain other elements, text, numbers, functions (for reactive values), or null/undefined
+export type Child = HTMLElement | string | number | (() => any) | null | undefined;
 export type Children = Child | Child[];
 
 // Base options for all elements
@@ -20,6 +22,14 @@ export const appendChildren = (parent: HTMLElement, children: Children): void =>
 
     if (child instanceof HTMLElement) {
       parent.appendChild(child);
+    } else if (typeof child === 'function') {
+      // Handle reactive functions (computed values)
+      const textNode = document.createTextNode('');
+      parent.appendChild(textNode);
+
+      effect(() => {
+        textNode.textContent = String(child());
+      });
     } else {
       parent.appendChild(document.createTextNode(String(child)));
     }
