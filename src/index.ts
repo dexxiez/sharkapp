@@ -1,7 +1,7 @@
 export { sharkApp, type SharkApp, type Consumable } from "./shark-app";
 
 // Base utilities
-export { newElement as createElement } from "./elements/base-element";
+export { newElement } from "./elements/base-element";
 export { BaseComponent } from "./elements/base-component";
 export type { BaseElementOptions, Child, Children } from "./elements/types";
 
