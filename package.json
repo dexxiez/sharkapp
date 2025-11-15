@@ -1,18 +1,39 @@
 {
   "name": "sharkapp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "type-check": "tsc --noEmit"
+  "version": "0.1.1",
+  "description": "A lightweight virtual DOM framework",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
   },
-  "keywords": [],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "type-check": "tsc --noEmit",
+    "prepublishOnly": "pnpm build"
+  },
+  "keywords": [
+    "virtual-dom",
+    "framework",
+    "hyperapp"
+  ],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.22.0",
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^6.0.0",
     "prettier": "^3.6.2",
+    "tsup": "^8.5.1",
     "typescript": "^5.9.3"
   }
 }
