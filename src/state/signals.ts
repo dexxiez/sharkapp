@@ -3,6 +3,13 @@ import type { Effect, EffectFn, Signal } from "./types";
 
 let currentEffect: Effect | null = null;
 
+/**
+ * Run an effect
+ * @example
+ * effect(() => {
+ *   console.log(count());
+ * });
+ */
 export const effect = (fn: EffectFn): Effect => {
   const effect: Effect = {
     fn,
@@ -51,6 +58,17 @@ export const scheduleEffect = (effect: Effect) => {
   }
 };
 
+/**
+ * Batch multiple effects
+ * @example
+ * batch(() => {
+ *   setValue(count() + 1);
+ *   setValue(count() * 2);
+ * });
+ * // => This will run both effects after the batch is complete
+ * console.log(count());
+ * // => 3
+ */
 export const batch = <T>(fn: () => T): T => {
   batchDepth++;
   try {
@@ -65,8 +83,14 @@ export const batch = <T>(fn: () => T): T => {
   }
 };
 
-// signals
-
+/**
+ * Create a signal
+ * @example
+ * const [count, setCount] = signal(0);
+ * setCount(count() + 1);
+ * console.log(count());
+ * // => 1
+ */
 export const signal = <T>(initial: T): Signal<T> => {
   let value = initial;
   const subscribers = new Set<Effect>();
@@ -97,8 +121,13 @@ export const signal = <T>(initial: T): Signal<T> => {
   return [read, write];
 };
 
-// computed
-
+/**
+ * Create a computed value
+ * @example
+ * const doubled = computed(() => count() * 2);
+ * console.log(doubled());
+ * // => 2
+ */
 export const computed = <T>(fn: () => T): (() => T) => {
   const [value, setValue] = signal<T>(undefined as unknown as T);
 

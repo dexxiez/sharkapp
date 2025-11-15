@@ -83,6 +83,10 @@ const app = sharkApp({
 - `computed(fn)` - Create computed values
 - `effect(fn)` - Run side effects on state changes (auto-cleaned up by components)
 
+### Helpers
+- `renderIf(condition, element)` - Conditionally render elements based on a boolean condition
+- `renderIfElse(condition, element, elseElement)` - Conditionally render elements with fallback
+
 ## Building
 
 ```bash

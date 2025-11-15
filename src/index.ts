@@ -5,6 +5,9 @@ export { newElement } from "./elements/base-element";
 export { BaseComponent } from "./elements/base-component";
 export type { BaseElementOptions, Child, Children } from "./elements/types";
 
+// Helpers
+export { renderIf, renderIfElse } from "./elements/helpers";
+
 // Complex components (class-based)
 export { Button, button, type ButtonOptions } from "./elements/button";
 

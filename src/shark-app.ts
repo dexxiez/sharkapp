@@ -7,6 +7,14 @@ export interface SharkApp {
   mountElement: HTMLElement;
 }
 
+/**
+ * Mount a SharkApp
+ * @example
+ * sharkApp({
+ *   consume: [div({ children: "Shark Shark Shark Shark!" })],
+ *   mountElement: document.getElementById("app")
+ * });
+ */
 export const sharkApp = (app: SharkApp) => {
   const consume = Array.isArray(app.consume) ? app.consume : [app.consume];
   for (const component of consume) {
