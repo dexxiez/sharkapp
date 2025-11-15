@@ -1,5 +1,6 @@
 import type { Effect } from "../state";
-import { type BaseElementOptions, appendChildren } from "./types";
+import type { BaseElementOptions } from "./types";
+import { appendChildren } from "./utils";
 
 let currentComponent: BaseComponent<unknown> | null = null;
 
@@ -14,7 +15,7 @@ export abstract class BaseComponent<TOptions = Record<string, unknown>> {
   protected options: TOptions;
 
   public effects: Effect[] = [];
-  public compooteds: (() => void)[] = [];
+  public computeds: (() => void)[] = [];
 
   constructor(tagName: string, options: TOptions & BaseElementOptions) {
     this.element = document.createElement(tagName);
@@ -72,9 +73,9 @@ export abstract class BaseComponent<TOptions = Record<string, unknown>> {
     }
     this.effects = [];
 
-    for (const compooted of this.compooteds) {
-      compooted();
+    for (const computed of this.computeds) {
+      computed();
     }
-    this.compooteds = [];
+    this.computeds = [];
   }
 }

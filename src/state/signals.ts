@@ -108,7 +108,7 @@ export const computed = <T>(fn: () => T): (() => T) => {
 
   const component = getCurrentlyInitializingComponent();
   if (component) {
-    component.compooteds.push(() => eff.dispose());
+    component.computeds.push(() => eff.dispose());
   }
 
   return value;

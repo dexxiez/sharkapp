@@ -1,4 +1,5 @@
-import { type BaseElementOptions, appendChildren } from "./types";
+import type { BaseElementOptions } from "./types";
+import { appendChildren } from "./utils";
 
 // Generic factory for creating HTML elements with common options
 export const newElement = <T extends HTMLElement>(
